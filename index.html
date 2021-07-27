@@ -31,15 +31,16 @@
 
     let overlayImage = document.getElementById("overlayImage")
 
-
-    resimInput.addEventListener("input", (ev) => {
-
-        var reader = new FileReader();
+    var reader = new FileReader();
         reader.onload = function (e) {
             image.src = e.target.result;
 
             ctx.drawImage(image, 0, 0, 500, 500)
         }
+
+
+    resimInput.addEventListener("input", (ev) => {
+        
         reader.readAsDataURL(resimInput.files[0]);
 
     });
