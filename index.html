@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessiz İşgale Dur De</title>
+</head>
+
+<body>
+    <h1>"Sessiz İşgale Dur De" Profil Resmi Oluşturucu</h1>
+    <h3><b>Note: Pls don't ban me github</b></h3>
+
+    <input type="file" name="Resim Seçin" id="resimInput" accept="image/*">
+    <br><br>
+    <canvas id="editCanvas" width="500px" height="500px" style="border: 1px solid;"></canvas>
+    <br>
+    <button style="width: 500px; height: 50px;" onclick="addOverlay()">Sessiz İşgale Dur De!</button>
+
+    <img src="overlay.png" alt="" id="overlayImage" style="position:absolute; top:-10000px;">
+</body>
+
+<script>
+    // YERLİ MİLLİ JAVASCRİPT BEN YAZDIM
+    // -Deniz
+    const resimInput = document.getElementById("resimInput");
+    let image = document.createElement("img");
+    let editCanvas = document.getElementById("editCanvas");
+    let ctx = editCanvas.getContext("2d");
+
+    let overlayImage = document.getElementById("overlayImage")
+
+
+    resimInput.addEventListener("input", (ev) => {
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            image.src = e.target.result;
+
+            ctx.drawImage(image, 0, 0, 500, 500)
+        }
+        reader.readAsDataURL(resimInput.files[0]);
+
+    });
+
+    function addOverlay(){
+        ctx.drawImage(overlayImage, 0, 0, 500, 500)
+    }
+</script>
+
+</html>
