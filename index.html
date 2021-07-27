@@ -10,13 +10,13 @@
 
 <body>
     <h1>"Sessiz İşgale Dur De" Profil Resmi Oluşturucu</h1>
-    <h2>Resmi seçtikten sonra en alttaki butona basın</h2>
+    <h2>Resmi seçtikten sonra en alttaki butona basın. Oluşan resmi kaydetmek için resme tıklayın</h2>
     <h3><b>Note: Pls don't ban me github</b></h3>
 
     <input type="file" name="Resim Seçin" id="resimInput" accept="image/*">
     <button onclick="reader.readAsDataURL(resimInput.files[0])">Yenile</button>
     <br><br>
-    <canvas id="editCanvas" width="500px" height="500px" style="border: 1px solid;"></canvas>
+    <canvas onclick="download()" id="editCanvas" width="500px" height="500px" style="border: 1px solid;"></canvas>
     <br>
     <button style="width: 500px; height: 50px;" onclick="addOverlay()">Sessiz İşgale Dur De!</button>
 
@@ -34,21 +34,28 @@
     let overlayImage = document.getElementById("overlayImage")
 
     var reader = new FileReader();
-        reader.onload = function (e) {
-            image.src = e.target.result;
+    reader.onload = function (e) {
+        image.src = e.target.result;
 
-            ctx.drawImage(image, 0, 0, 500, 500)
-        }
+        ctx.drawImage(image, 0, 0, 500, 500)
+    }
 
 
     resimInput.addEventListener("input", (ev) => {
-        
+
         reader.readAsDataURL(resimInput.files[0]);
 
     });
 
-    function addOverlay(){
+    function addOverlay() {
         ctx.drawImage(overlayImage, 0, 0, 500, 500)
+    }
+
+    function download () {
+        let link = document.createElement('a');
+        link.download = 'taşşaklı.png';
+        link.href = document.getElementById('editCanvas').toDataURL()
+        link.click();
     }
 </script>
 
