@@ -10,9 +10,11 @@
 
 <body>
     <h1>"Sessiz İşgale Dur De" Profil Resmi Oluşturucu</h1>
+    <h2>Resmi seçtikten sonra en alttaki butona basın</h2>
     <h3><b>Note: Pls don't ban me github</b></h3>
 
     <input type="file" name="Resim Seçin" id="resimInput" accept="image/*">
+    <button onclick="reader.readAsDataURL(resimInput.files[0])">Yenile</button>
     <br><br>
     <canvas id="editCanvas" width="500px" height="500px" style="border: 1px solid;"></canvas>
     <br>
