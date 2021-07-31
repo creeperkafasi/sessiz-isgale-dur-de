@@ -7,6 +7,7 @@
     <title>Sessiz İşgale Dur De</title>
     <script defer src="index.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="overlay.png" type="image/png">
 </head>
 
 <body>
@@ -36,32 +37,5 @@
         </div>
     </div>
 </body>
-
-<!-- <script>
-    //reader.readAsDataURL(resimInput.files[0])
-
-    // YERLİ MİLLİ JAVASCRİPT BEN YAZDIM 🇹🇷🇹🇷🇹🇷
-    // -Deniz
-    const resimInput = document.getElementById(" resimInput"); let image=document.createElement("img"); let
-                        editCanvas=document.getElementById("editCanvas"); let ctx=editCanvas.getContext("2d"); let
-                        overlayImage=document.getElementById("overlayImage") var reader=new FileReader();
-                        reader.onload=function (e) { image.src=e.target.result; ctx.drawImage(image, 0, 0, 500, 500) }
-                        resimInput.addEventListener("input", (ev)=> {
-
-                    reader.readAsDataURL(resimInput.files[0]);
-
-                    });
-
-                    function addOverlay() {
-                    ctx.drawImage(overlayImage, 0, 0, 500, 500)
-                    }
-
-                    function download() {
-                    let link = document.createElement('a');
-                    link.download = 'taşşaklı.png';
-                    link.href = document.getElementById('editCanvas').toDataURL()
-                    link.click();
-                    }
-                    </script> -->
 
 </html>
