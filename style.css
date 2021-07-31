@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
 * {
     text-align: center;
+    transition-duration: 70ms;
 }
 
 :root {
     font-family: 'Roboto';
+    --background-color: #fff;
+    --primary-color: #000;
+    --secondary-color: #add8e6;
+    background-color: var(--background-color);
+    color: var(--primary-color);
 }
 
 body {
@@ -39,20 +45,20 @@ body {
     margin-top: 1rem;
 }
 
-.uploadContainer,
-.downloadContainer {
+.upload-container,
+.download-container {
     display: flex;
     width: 100%;
 }
 
-.uploadContainer>button,
-.downloadContainer>button {
+.upload-container>button,
+.download-container>button {
     flex: 1;
     height: 30px;
 }
 
-.downloadContainer {
-    margin-bottom: 5px;
+.download-container {
+    margin-bottom: 10px;
 }
 
 .canvas-container {
@@ -62,7 +68,7 @@ body {
 .canvas-container canvas {
     width: 400px;
     height: 400px;
-    background-color: lightblue;
+    background-color: var(--secondary-color);
     border: 1px dashed;
 }
 
@@ -71,4 +77,8 @@ body {
         width: 300px;
         height: 300px;
     }
+}
+
+.settings-container {
+    margin-bottom: 20px;
 }

@@ -1,14 +1,16 @@
+// 🇹🇷🇹🇷🇹🇷🇹🇷🇹🇷🇹🇷
+
 const reader = new FileReader();
 
-const input = document.createElement('input');
-input.type = 'file';
-input.accept = "image/*";
-input.addEventListener("input", (ev) => {
-    reader.readAsDataURL(input.files[0]);
+const fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.accept = "image/*";
+fileInput.addEventListener("input", (ev) => {
+    reader.readAsDataURL(fileInput.files[0]);
 });
 
-let editorCanvas = document.querySelector("canvas");
-let editorCtx = editorCanvas.getContext("2d");
+const editorCanvas = document.querySelector("canvas");
+const editorCtx = editorCanvas.getContext("2d");
 
 
 if (!window.localStorage.getItem("drawMode"))
@@ -22,8 +24,13 @@ overlayImage.src = "overlay.png";
 
 const originalImage = document.createElement("img");
 
+const root = document.querySelector(":root");
+
+const themeInput = document.getElementById("themeInput");
+themeInput.checked = window.localStorage.getItem("theme") === "d";
+
 function selectImage() {
-    input.click();
+    fileInput.click();
 }
 
 reader.addEventListener("load", (res) => {
@@ -52,3 +59,24 @@ function downloadCanvas() {
     link.href = editorCanvas.toDataURL();
     link.click();
 }
+
+function syncSettings() {
+    switch (window.localStorage.getItem("theme")) {
+        case "l":
+            root.style.setProperty("--background-color", "#fff");
+            root.style.setProperty("--primary-color", "#000");
+            root.style.setProperty("--secondary-color", "lightblue");
+            break;
+        case "d":
+            root.style.setProperty("--background-color", "#262626");
+            root.style.setProperty("--primary-color", "#fff");
+            root.style.setProperty("--secondary-color", "#2F4081");
+            break;
+        default:
+            window.localStorage.setItem("theme", "l");
+            break;
+    }
+}
+
+syncSettings();
+setInterval(syncSettings, 500);

@@ -18,14 +18,20 @@
     <div class="main-container">
 
         <div class="ui-container">
-            <div class="uploadContainer">
+            <div class="upload-container">
                 <button onclick="selectImage()">Resim Yükle</button>
             </div>
             <div class="canvas-container">
                 <canvas width="500" height="500"></canvas>
             </div>
-            <div class="downloadContainer">
+            <div class="download-container">
                 <button onclick="downloadCanvas(editorCanvas)">Resmi İndir</button>
+            </div>
+            <div class="settings-container">
+                <label for="">Koyu Mod:
+                    <input type="checkbox" name="Koyu Tema" id="themeInput"
+                        oninput="window.localStorage.setItem('theme',this.checked ? 'd' : 'l')">
+                </label>
             </div>
         </div>
     </div>
@@ -36,37 +42,26 @@
 
     // YERLİ MİLLİ JAVASCRİPT BEN YAZDIM 🇹🇷🇹🇷🇹🇷
     // -Deniz
-    const resimInput = document.getElementById("resimInput");
-    let image = document.createElement("img");
-    let editCanvas = document.getElementById("editCanvas");
-    let ctx = editCanvas.getContext("2d");
+    const resimInput = document.getElementById(" resimInput"); let image=document.createElement("img"); let
+                        editCanvas=document.getElementById("editCanvas"); let ctx=editCanvas.getContext("2d"); let
+                        overlayImage=document.getElementById("overlayImage") var reader=new FileReader();
+                        reader.onload=function (e) { image.src=e.target.result; ctx.drawImage(image, 0, 0, 500, 500) }
+                        resimInput.addEventListener("input", (ev)=> {
 
-    let overlayImage = document.getElementById("overlayImage")
+                    reader.readAsDataURL(resimInput.files[0]);
 
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        image.src = e.target.result;
+                    });
 
-        ctx.drawImage(image, 0, 0, 500, 500)
-    }
+                    function addOverlay() {
+                    ctx.drawImage(overlayImage, 0, 0, 500, 500)
+                    }
 
-
-    resimInput.addEventListener("input", (ev) => {
-
-        reader.readAsDataURL(resimInput.files[0]);
-
-    });
-
-    function addOverlay() {
-        ctx.drawImage(overlayImage, 0, 0, 500, 500)
-    }
-
-    function download() {
-        let link = document.createElement('a');
-        link.download = 'taşşaklı.png';
-        link.href = document.getElementById('editCanvas').toDataURL()
-        link.click();
-    }
-</script> -->
+                    function download() {
+                    let link = document.createElement('a');
+                    link.download = 'taşşaklı.png';
+                    link.href = document.getElementById('editCanvas').toDataURL()
+                    link.click();
+                    }
+                    </script> -->
 
 </html>
