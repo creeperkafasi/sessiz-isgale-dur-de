@@ -7,7 +7,7 @@
     <title>Sessiz İşgale Dur De</title>
 </head>
 
-<body>
+<body style="margin: 10px;">
     <h1>"Sessiz İşgale Dur De" Profil Resmi Oluşturucu</h1>
     <h2>Resmi seçtikten sonra en alttaki butona basın. Oluşan resmi kaydetmek için resme tıklayın</h2>
     <h3><b>Note: Pls don't ban me github</b></h3>
@@ -15,11 +15,11 @@
     <input type="file" name="Resim Seçin" id="resimInput" accept="image/*">
     <button onclick="reader.readAsDataURL(resimInput.files[0])">Yenile</button>
     <br><br>
-    <canvas onclick="download()" id="editCanvas" width="500px" height="500px" style="border: 1px solid;"></canvas>
+    <canvas onclick="download()" id="editCanvas" width="500px" height="500px" style="border: 1px solid; background-color: lightblue;"></canvas>
+    <img width="500px" src="overlay.png" alt="" id="overlayImage" style="position:absolute; left: 10px; z-index: -1">
     <br>
     <button style="width: 500px; height: 50px;" onclick="addOverlay()">Sessiz İşgale Dur De!</button>
 
-    <img src="overlay.png" alt="" id="overlayImage" style="position:absolute; top: -600px;">
 </body>
 
 <script>
