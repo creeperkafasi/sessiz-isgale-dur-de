@@ -45,3 +45,10 @@ reader.addEventListener("load", (res) => {
             editorCtx.drawImage(overlayImage, 0, 0, 500, 500);
         }, 200) // 200 ms bekletiyorum, lag fln oluyor bazen
 })
+
+function downloadCanvas() {
+    let link = document.createElement('a');
+    link.download = 'taşşaklı.png';
+    link.href = editorCanvas.toDataURL();
+    link.click();
+}

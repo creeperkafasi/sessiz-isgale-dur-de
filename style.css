@@ -39,14 +39,20 @@ body {
     margin-top: 1rem;
 }
 
-.buttons {
+.uploadContainer,
+.downloadContainer {
     display: flex;
     width: 100%;
 }
 
-.buttons>button {
+.uploadContainer>button,
+.downloadContainer>button {
     flex: 1;
     height: 30px;
+}
+
+.downloadContainer {
+    margin-bottom: 5px;
 }
 
 .canvas-container {
@@ -54,13 +60,13 @@ body {
 }
 
 .canvas-container canvas {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     background-color: lightblue;
     border: 1px dashed;
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width:450px) {
     .canvas-container canvas {
         width: 300px;
         height: 300px;
